@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose');
 
 module.exports = async function connectDB() {
     const uri = process.env.MONGO_URI || 'mongodb://localhost:27017/medbilling';
