@@ -1,19 +1,19 @@
 const mongoose = require('mongoose');
 const ClaimSchema = new mongoose.Schema({
-    providerId: {type: mongoose.Types.ObjectId, ref: 'Provider'},
-    patientId: {type: mongoose.Types.ObjectId, ref: 'Patient'},
+    providerId: { type: mongoose.Types.ObjectId, ref: 'Provider' },
+    patientId: { type: mongoose.Types.ObjectId, ref: 'Patient' },
     encounterDate: Date,
     visitType: String,
     diagnosis: [Object],
-    procedures: [{code: String, description: String, qty: Number, uniCost: Number}],
-    medications: [{name: String, qty: Number, uniCost: Number}],
+    procedures: [{ code: String, description: String, qty: Number, uniCost: Number }],
+    medications: [{ name: String, qty: Number, uniCost: Number }],
     bedDays: Number,
     ambulanceUsed: Boolean,
     ambulanceCharge: Number,
     billedAmount: Number,
-    status: {type:String, default: 'draft'},
+    status: { type: String, default: 'draft' },
     calculated: mongoose.Schema.Types.Mixed,
     history: [Object]
-}, {timestamps: true});
+}, { timestamps: true });
 
 module.exports = mongoose.model('Claim', ClaimSchema);
